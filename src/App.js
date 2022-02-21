@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import Todos from './components/Todos';
 import Header from './components/Header';
 import Tab from './components/Tab';
-// Test
+
 export default function App() {
   const localStore = JSON.parse(localStorage.getItem('todos'));
   const [formInput, setFormInput] = useState({
@@ -136,9 +136,5 @@ export default function App() {
         />
       </div>
     </main>
-  ); //No way!
-}
-
-function ev(eve) {
-  console.log(eve);
+  );
 }
