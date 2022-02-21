@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-position: inside;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+:root {
+  --bg-color: white;
+  --text-color: black;
+  --bg-color-check: #ccc;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: 200px;
+  background: url(../src/images/bg-desktop-light.jpg) no-repeat;
+  background-size: cover;
+  padding: 0 3%;
+  color: white;
+}
+
+header > div {
+  width: 100%;
+  max-width: 500px;
+  /* outline: auto; */
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 20px;
+  margin: 10px auto;
+  margin-top: 0;
+}
+
+main.container {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  outline: auto;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.div {
+  width: 100%;
+  max-width: 500px;
+  /* outline: auto; */
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  margin: auto 0;
+  cursor: pointer;
+}
+
+/* Customize the label (the container) */
+label.container {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  gap: 15px;
+  position: relative;
+  padding: 0 15px;
+
+  /* margin-bottom: 12px; */
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  border-radius: 5px;
+  background-color: var(--bg-color);
+}
+
+/* Hide the browser's default checkbox */
+#checkbox {
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: var(--bg-color-check);
+  border-radius: 50%;
+  inset: 0;
+  margin: auto 0;
+  grid-column: 1/2;
+}
+
+/* On mouse-over, add a grey background color */
+label.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+label.container input:checked ~ .checkmark {
+  background-color: darkcyan;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+
+  display: none;
+}
+
+/* Show the checkmark when checked */
+label.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+label.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#new-todo,
+.new-todo {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  height: 50px;
+  grid-column: 2/3;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-color);
+  /* outline: auto; */
+}
+
+.new-todo {
+  display: flex;
+  align-items: center;
+}
+
+#new-todo::placeholder {
+  font-size: 1rem;
+}
+
+#new-todo:focus {
+  outline: none;
+}
+
+/* To-do's */
+section.todo {
+  /* outline: auto; */
+  position: relative;
+  min-height: 100px;
+  padding: 0 3%;
+  /* margin-bottom: 40px; */
+}
+
+.todo-list {
+  position: relative;
+  inset: 0;
+  top: -25px;
+  margin: 0 auto;
+  /* outline: auto; */
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.123);
+  width: 94%;
+  height: fit-content;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: white;
+}
+
+label.todo {
+  background-color: white;
+  margin: 0;
+  border-radius: 0 0;
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+  transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: var(--bg-color);
+}
+
+label.todo:hover {
+  transform: scale(1.03);
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.123);
+  z-index: 3;
+}
+
+.tabs {
+  /* outline: auto; */
+  display: flex;
+  padding: 20px 0;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.323);
+  margin: 20px auto;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: hsl(234, 6%, 67%);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.tabs > div {
+  margin: auto;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+label.todo .new-todo::placeholder {
+  font-size: 0.8rem;
+}
+
+.del-note {
+  margin: auto 0;
+}
+
+.todo-foot {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 3%;
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: var(--bg-color);
+}
+
+.todo-foot h2,
+.todo-foot {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: hsl(236, 9%, 61%);
+}
+
+.todo-foot button {
+  background: none;
+  border: none;
+  color: hsl(236, 9%, 61%);
+  cursor: pointer;
+}
