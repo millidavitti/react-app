@@ -139,6 +139,6 @@ export default function App() {
   ); //No way!
 }
 
-function(eve){
+function ev(eve) {
   console.log(eve);
 }
