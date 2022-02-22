@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Tab from './components/Tab';
 
 export default function App() {
-  const localStore = JSON.parse(localStorage.getItem('todos'));
   const [formInput, setFormInput] = useState({
     newTodo: '',
     isDeleteShown: false,
@@ -18,10 +17,14 @@ export default function App() {
     completed: false,
   });
 
-  const [todos, newTodos] = useState(localStore);
+  const [todos, newTodos] = useState([]);
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+
+    const localStore = JSON.parse(localStorage.getItem('todos'));
+
+    newTodos(localStore);
+  }, []);
 
   function newTodo(event) {
     const target = event.target;
