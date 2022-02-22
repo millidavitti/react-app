@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import moon from '../images/icon-moon.svg';
 import sun from '../images/icon-sun.svg';
 
 export default function (props) {
-  const [darkMode, setDarkMode] = useState({ isDark: true });
-
+  const themeState = JSON(localStorage.getItem('darkMode'));
+  const [darkMode, setDarkMode] = useState(themeState || { isDark: true });
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
   const color = {
     bgColor: darkMode.isDark ? 'hsl(235, 21%, 11%)' : 'white',
     textColor: darkMode.isDark ? 'hsl(234, 39%, 85%)' : 'hsl(235, 19%, 35%)',
