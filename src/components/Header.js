@@ -3,7 +3,7 @@ import moon from '../images/icon-moon.svg';
 import sun from '../images/icon-sun.svg';
 
 export default function (props) {
-  const themeState = JSON(localStorage.getItem('darkMode'));
+  const themeState = JSON.parse(localStorage.getItem('darkMode'));
   const [darkMode, setDarkMode] = useState(themeState || { isDark: true });
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
