@@ -4,7 +4,7 @@ import sun from '../images/icon-sun.svg';
 
 export default function (props) {
   const themeState = JSON.parse(localStorage.getItem('darkMode'));
-  const [darkMode, setDarkMode] = useState(themeState || { isDark: true });
+  const [darkMode, setDarkMode] = useState(themeState || { isDark: false });
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
