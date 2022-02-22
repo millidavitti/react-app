@@ -16,10 +16,10 @@ export default function (props) {
   // Dark mode
   function changeTheme(color) {
     setDarkMode(pre => ({ ...pre, isDark: !pre.isDark }));
-    const root = document.documentElement;
-    root.style.setProperty('--bg-color', color.bgColor);
-    root.style.setProperty('--text-color', color.textColor);
-    root.style.setProperty('--bg-color-check', color.bgColorCheck);
+    const root = document.documentElement.style.setProperty;
+    root('--bg-color', color.bgColor);
+    root('--text-color', color.textColor);
+    root('--bg-color-check', color.bgColorCheck);
   }
 
   return (
