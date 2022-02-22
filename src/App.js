@@ -17,14 +17,11 @@ export default function App() {
     completed: false,
   });
 
-  const [todos, newTodos] = useState([]);
+  const localStore = JSON.parse(localStorage.getItem('todos'));
+  const [todos, newTodos] = useState(localStore || []);
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
-
-    const localStore = JSON.parse(localStorage.getItem('todos'));
-
-    newTodos(localStore);
-  }, []);
+  }, [todos]);
 
   function newTodo(event) {
     const target = event.target;
